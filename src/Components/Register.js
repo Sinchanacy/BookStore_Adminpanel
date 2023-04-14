@@ -20,7 +20,6 @@ function Register() {
   const navigate = useNavigate();
    const handleSubmit = async (event) => {
     event.preventDefault();
-    
     const form = event.currentTarget;
     console.log(form.checkValidity());
     if(form.checkValidity() === true)
@@ -86,7 +85,6 @@ function Register() {
     <Form.Group as={Col} md="4"  className="my-3" controlId="validationCustomUserName">
           <Form.Label>UserName</Form.Label>
           <InputGroup hasValidation>
-            <InputGroup.Text id="input"></InputGroup.Text>
             <Form.Control
               type="text"
               placeholder="Full name*"
@@ -101,8 +99,7 @@ function Register() {
         </Form.Group>
         <Form.Group as={Col} md="4"  className="my-3" controlId="validationCustomEmail">
           <Form.Label>Email</Form.Label>
-          <InputGroup hasValidation>
-            <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+          <InputGroup hasValidation> 
             <Form.Control
               type="text"
               placeholder="example@gmail.com*"
@@ -118,7 +115,6 @@ function Register() {
         <Form.Group as={Col} md="4" className="my-2" controlId="validationCustomPassword">
           <Form.Label>Password</Form.Label>
           <InputGroup hasValidation>
-            <InputGroup.Text id="inputGroup"></InputGroup.Text>
             <Form.Control
               type="text"
               placeholder="Password*"
@@ -140,6 +136,5 @@ function Register() {
     
   );
 }
-
 export default Register;
 

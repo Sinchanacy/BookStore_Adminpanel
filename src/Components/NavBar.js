@@ -24,12 +24,12 @@ function NavBar() {
             <Nav.Link className="me-auto mx-5 my-lg-0" href="#action1"><b>Fleet Operators</b></Nav.Link>
             <Nav.Link className="me-auto mx-5 my-lg-0" href="#action1"><b>Tax Proffesionals</b></Nav.Link>
             <b><NavDropdown className="me-auto mx-5 my-lg-0"  title="Support" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Instructions</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
+              <NavDropdown.Item href="#action">Instructions</NavDropdown.Item>
+              <NavDropdown.Item href="#action">
                FAQs
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
+              <NavDropdown.Item href="#action">
                 Contact Us
               </NavDropdown.Item>
             </NavDropdown></b>

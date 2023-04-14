@@ -6,7 +6,15 @@ import axios from 'axios';
 
 export default function SecuredAPI() {
     const [API,setAPI]=useState(null)
+    const navigate = useNavigate();
     const Navigate=useNavigate();
+    const Logout=()=>
+    {
+        localStorage.removeItem("Token");
+        localStorage.removeItem("authenticated");
+        navigate("/login");
+        
+    }
     const GetAPI=async ()=>{
         try {
             const token = localStorage.getItem("Token");
@@ -48,6 +56,11 @@ export default function SecuredAPI() {
             <Button type='submit' onClick={GetAPI}>Get the secured API response</Button>
         </div>
         <div className='text-center my-4'>{API}</div>
+        <div>
+            <div className='text-center'>
+            <Button type='submit' onClick={Logout}>Logout</Button>
+            </div>
+        </div>
         </>
     );
     }

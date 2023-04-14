@@ -9,7 +9,6 @@ import React, { useState } from 'react';
 import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 export default function ForgotPassword() {
@@ -116,7 +115,6 @@ export default function ForgotPassword() {
         <Form.Group as={Col} md="4" controlId="validationCustomEmail">
           <Form.Label>Email</Form.Label>
           <InputGroup hasValidation>
-            <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
             <Form.Control
               type="text"
               placeholder="example@gmail.com*"
@@ -138,7 +136,6 @@ export default function ForgotPassword() {
         <Form.Group as={Col} md="4" className="my-2" controlId="validationCustomPassword">
           <Form.Label>{link}</Form.Label>
           <InputGroup hasValidation>
-            <InputGroup.Text id="inputGroup"></InputGroup.Text>
             <Form.Control
               type="text"
               placeholder="*password"

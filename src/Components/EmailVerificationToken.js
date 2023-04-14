@@ -2,7 +2,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -16,6 +15,7 @@ export default function EmailVerificationToken() {
     const [validated, setValidated] = useState(false);
     const [token,setToken]=useState('');
     const [status,setStatus]=useState('');
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log("hey");
@@ -35,6 +35,7 @@ export default function EmailVerificationToken() {
             if(response.data==="User Verified Successfully")
             {
                 console.log("success");
+                setValidated(true)
                 navigate("/login");
             }
             else{
@@ -87,7 +88,6 @@ export default function EmailVerificationToken() {
         <Form.Group as={Col} md="4" controlId="validationCustomEmail">
           <Form.Label>Token</Form.Label>
           <InputGroup hasValidation>
-            <InputGroup.Text id="inputGroupPrepend"></InputGroup.Text>
             <Form.Control
               type="text"
               placeholder="token*"

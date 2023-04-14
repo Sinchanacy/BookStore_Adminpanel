@@ -89,7 +89,6 @@ function Login() {
         <Form.Group as={Col} md="4" controlId="validationCustomEmail">
           <Form.Label>Email</Form.Label>
           <InputGroup hasValidation>
-            <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
             <Form.Control
               type="text"
               placeholder="example@gmail.com*"
@@ -105,7 +104,6 @@ function Login() {
         <Form.Group as={Col} md="4" className="my-2" controlId="validationCustomPassword">
           <Form.Label>Password</Form.Label>
           <InputGroup hasValidation>
-            <InputGroup.Text id="inputGroup"></InputGroup.Text>
             <Form.Control
               type="text"
               placeholder="Password*"
