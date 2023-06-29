@@ -20,6 +20,12 @@ export default function ForgotPassword() {
   const [token,setToken]=useState('');
   const [passLink,SetPassLink]=useState("nolink");
   const [status,setStatus]=useState('');
+  const [error,setError]=useState('')
+  const [myStyle,setmyStyle] = useState({color:'red',});
+  const Onchange=(e)=>{
+    setToken(e.target.value)
+    setError("")
+  }
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -40,8 +46,7 @@ export default function ForgotPassword() {
           setLink('New password');
           setToken('Password reset token sent successfully');
           SetPassLink(response.data);
-        
-      
+   
     }
       catch (error) {    
         setStatus("Email not registered")
@@ -119,8 +124,9 @@ export default function ForgotPassword() {
               type="text"
               placeholder="example@gmail.com*"
               value={email}
+              name="email"
               required
-              onChange={(e)=>setEmaial(e.target.value)}
+              onChange={Onchange}
             />
             <Form.Control.Feedback type="invalid">
               Please enter a Email.

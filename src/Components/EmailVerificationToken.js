@@ -10,17 +10,28 @@ import Image from 'react-bootstrap/Image';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 export default function EmailVerificationToken() {
     const navigate = useNavigate();
     const [validated, setValidated] = useState(false);
     const [token,setToken]=useState('');
-    const [status,setStatus]=useState('');
+    const [status,setStatus]=useState("");
+    const [error,setError]=useState('')
+    const [myStyle,setmyStyle] = useState({color:'red',});
+    const Onchange=(e)=>{
+      setToken(e.target.value)
+      setError("")
+    }
+  
+   
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log("hey");
         const form = event.currentTarget;
+        setStatus("");
         if (form.checkValidity() === true) {
+          
           console.log(token);
           const api=token;
           console.log(api);
@@ -39,9 +50,10 @@ export default function EmailVerificationToken() {
                 navigate("/login");
             }
             else{
-                setStatus("Invalid Token");
+                setError("Invalid Token");
             }
-              console.log(response.data);       
+              console.log(response.data); 
+              console.log("useState"+{setStatus});      
           
         }
           catch (error) {   
@@ -55,6 +67,7 @@ export default function EmailVerificationToken() {
             
             console.log(error.message);
           } 
+          
         }
         else{
           event.preventDefault();
@@ -90,19 +103,20 @@ export default function EmailVerificationToken() {
           <InputGroup hasValidation>
             <Form.Control
               type="text"
+              name='token'
               placeholder="token*"
               value={token}
               required
-              onChange={(e)=>setToken(e.target.value)}
+              onChange={Onchange}
             />
             <Form.Control.Feedback type="invalid">
-              Please enter a Token.
+              Please enter a token
             </Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
+        <small className='text-muted'><p className='error' style={myStyle}>{error}</p></small>
         <Button className="my-4" type="submit">Verify</Button>
-        <div className=' my-3 container h5'>{status}</div>
-
+        <div className=' my-3 container h5' style={myStyle}>{status}</div>
         </Form>
         
     

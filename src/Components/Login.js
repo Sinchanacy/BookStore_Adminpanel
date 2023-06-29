@@ -16,7 +16,7 @@ function Login() {
   const [email,setEmaial]=useState('');
   const [password,setPassword]=useState('');
   const [Token,setToken]=useState('');
-  const [authenticated, setauthenticated] = useState(localStorage.getItem(localStorage.getItem("authenticated")|| false));
+  //const [authenticated, setauthenticated] = useState(localStorage.getItem(localStorage.getItem("authenticated")|| false));
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -31,7 +31,7 @@ function Login() {
         headers:{
           'Content-Type':'application/json',
         },
-        
+          
       })
           if(response.data.token===null)
           {
@@ -40,7 +40,6 @@ function Login() {
           else
           {
             setToken("User verified Successfully :"+response.data.token)
-            setauthenticated(true)
             console.log(response.data.token);
             localStorage.setItem("authenticated", true);
             localStorage.setItem("Token",response.data.token)
